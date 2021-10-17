@@ -7,7 +7,7 @@ Run the following command in the root directory.
 $ docker-compose up
 ```
 When MongoDB, Drill and this NodeJS backend are started, the frontend of Drill can be started: `localhost:8087`
-Activate the MongoDB plugin (`http://localhost:8047/storage/mongo`) and set the following configuration:
+Activate the MongoDB plugin and set the following configuration (`http://localhost:8047/storage/mongo`).
 ```json
 {
   "type": "mongo",
@@ -27,7 +27,7 @@ Add a workspace in the `dfs` plugin (`http://localhost:8047/storage/dfs`)
  ```
 
 Fill the database with data using the requests described in the REST API section.
-Drill queries can be executed directly in the drill frontend (`http://localhost:8047/query`) or via NodeJS backend..
+Drill queries can be executed directly in the drill frontend (`http://localhost:8047/query`) or via NodeJS backend.
 
 ## REST API
 
