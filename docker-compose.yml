@@ -1,0 +1,37 @@
+# https://medium.com/zenofai/how-to-build-a-node-js-and-mongodb-application-with-docker-containers-15e535baabf5
+version: "3"
+services:
+  node:
+    container_name: nodejs1
+    image: nodejs
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+
+  drill:
+    container_name: drill1
+    image: apache/drill:latest
+
+    ports:
+      - "8047:8047"
+    tty: true
+    volumes:
+      - ./node:/storage
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+
+
+
