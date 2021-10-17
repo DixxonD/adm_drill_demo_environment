@@ -90,3 +90,20 @@ Deletes a student.  Without using Drill, for debugging purposes.
 ```json
 {"id": "number"}
 ```
+
+## Example Queries
+Returns all students
+```sql
+select * from mongo.testdb.students
+``` 
+
+Returns all student/project assignments
+```sql
+select student.firstname, student.lastname, project.title, project.descripton
+from dfs.storage.`projects.csvh` as project
+join dfs.storage.`enrollment.json` as enrollment
+on project.id=enrollment.projectId
+join mongo.testdb.students as student
+on enrollment.studentId=student.id
+
+```
